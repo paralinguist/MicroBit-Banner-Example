@@ -1,0 +1,10 @@
+from microbit import *
+import radio
+radio.config(channel=1)
+radio.config(address=1)
+message = "WELCOME TO ASC STEM"
+radio.on()
+while True:
+    for char in message:
+        display.scroll(char)
+        radio.send(char)
