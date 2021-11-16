@@ -1,0 +1,14 @@
+from microbit import *
+import radio
+radio.config(address=controller_num/ previous_agent_num)
+radio.config(channel=1)
+radio.on()
+while True:
+#Listen for a bluetooth broadcast and save it to a string.
+    char = radio.receive()
+#Check that the string is set to a value.
+    if char is not None:
+        display.scroll(char)
+        radio.config(address=controller_num/ previous_agent_num)
+        radio.send(str(char))
+        radio.config(address=next_device)
